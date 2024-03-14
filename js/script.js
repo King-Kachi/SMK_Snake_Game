@@ -64,6 +64,14 @@ function drawGame() {
         clearInterval(game);
     }
 
+    // Code to check if the snake's head collides with its body
+    for (let i = 1; i < snake.length; i++) {
+        if (snakeX === snake[i].x && snakeY === snake[i].y) {
+            clearInterval(game);
+            return; // The Game Stops
+        }
+    }
+
     if (dir == "right") {
         snakeX += box;
     }
@@ -85,4 +93,4 @@ function drawGame() {
     snake.unshift(newHead);
 }
 
-let game = setInterval(drawGame, 100);
+let game = setInterval(drawGame, 250);
